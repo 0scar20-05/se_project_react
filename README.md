@@ -1,4 +1,4 @@
-# react
+# React
 
 A website that organizes appropriate attire based on the current weather conditions of the user's area.
 
