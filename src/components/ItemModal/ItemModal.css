@@ -1,0 +1,19 @@
+.modal__image {
+  max-width: 100%;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.modal__caption {
+  padding: 20px 0 0 32px;
+  margin: 0;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.modal__weather {
+  padding: 12px 0 32px 32px;
+  margin: 0;
+  font-size: 20px;
+  line-height: 24px;
+}
