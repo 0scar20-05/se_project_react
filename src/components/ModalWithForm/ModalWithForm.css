@@ -9,9 +9,12 @@
   justify-content: center;
   align-items: center;
   visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s, opacity 0.3s ease-in;
 }
 
 .modal_opened {
+  opacity: 1;
   visibility: visible;
 }
 
@@ -29,6 +32,7 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
+  padding: 0;
 }
 
 .modal__content {
@@ -78,7 +82,7 @@
 .modal__submit {
   border: none;
   color: white;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   max-width: 130px;
@@ -90,5 +94,5 @@
 }
 
 .modal__submit:hover {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: black;
 }

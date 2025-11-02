@@ -1,0 +1,34 @@
+.clothes-section {
+  flex-grow: 1;
+}
+
+.clothes-section__row {
+  display: flex;
+  gap: 20px;
+}
+
+.clothes-section__list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  gap: 21px;
+}
+
+.clothes-section__button {
+  padding: 0;
+  border: none;
+  color: rgba(0, 0, 0, 0.6);
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.clothes-section__text {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 16px;
+}

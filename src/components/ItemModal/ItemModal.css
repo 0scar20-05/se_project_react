@@ -9,6 +9,7 @@
   margin: 0;
   font-size: 20px;
   line-height: 24px;
+  font-weight: 700;
 }
 
 .modal__weather {
@@ -16,4 +17,30 @@
   margin: 0;
   font-size: 20px;
   line-height: 24px;
+  font-weight: 700;
+}
+
+.modal__footer {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal__delete {
+  margin: 0;
+  padding: 20px 32px 0 0;
+  color: red;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.modal__delete_text {
+  margin: 0;
+  font-size: 20px;
 }
