@@ -1,5 +1,5 @@
 import "./DeleteConfirmationModal.css";
-import X from "../../assets/X.svg";
+import closeIcon from "../../assets/X.svg";
 
 export default function DeleteConfirmationModal({
   isOpen,
@@ -13,7 +13,7 @@ export default function DeleteConfirmationModal({
     <div className={`modal ${isOpen ? "modal_opened" : ""}`}>
       <div className="modal__content modal__content_type_confirm">
         <button onClick={onClose} type="button" className="modal__close">
-          <img src={X} alt="close button" />
+          <img src={closeIcon} alt="close button" />
         </button>
         <p className="confirmation__modal_title">
           Are you sure you want to delete this item? <br /> This action is
@@ -22,7 +22,7 @@ export default function DeleteConfirmationModal({
         <div className="modal__buttons">
           <button
             className="modal__button modal__button_type_confirm"
-            onClick={() => onConfirm(card.id)}
+            onClick={() => onConfirm(card.id || card._id)}
           >
             Yes, delete item
           </button>

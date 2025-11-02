@@ -4,12 +4,8 @@ import ItemCard from "../ItemCard/ItemCard";
 export default function ClothesSection({
   clothingItems,
   onCardClick,
-  weatherData,
   handleAddClick,
 }) {
-  const filteredItems = weatherData
-    ? clothingItems.filter((item) => item.weather === weatherData.type)
-    : clothingItems;
   return (
     <div className="clothes-section">
       <div className="clothes-section__row">
@@ -23,8 +19,12 @@ export default function ClothesSection({
         </button>
       </div>
       <ul className="clothes-section__list">
-        {filteredItems.map((item) => (
-          <ItemCard key={item.id} item={item} onCardClick={onCardClick} />
+        {clothingItems.map((item) => (
+          <ItemCard
+            key={item.id || item._id}
+            item={item}
+            onCardClick={onCardClick}
+          />
         ))}
       </ul>
     </div>

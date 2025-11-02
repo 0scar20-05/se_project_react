@@ -1,13 +1,14 @@
 import "./ItemModal.css";
-import X from "../../assets/WhiteX.svg";
+import closeIcon from "../../assets/WhiteX.svg";
 
 function ItemModal({ activeModal, card, onClose, onOpenConfirmation }) {
-  if (!card || !card.id) return null;
+  const id = card?._id || card?.id;
+  if (!id) return null;
   return (
     <div className={`modal ${activeModal === "preview" && "modal_opened"}`}>
       <div className="modal__content modal__content_type_image">
         <button onClick={onClose} type="button" className="modal__close">
-          <img src={X} alt="close button" />
+          <img src={closeIcon} alt="close button" />
         </button>
         <img src={card.imageUrl} alt={card.name} className="modal__image" />
         <div className="modal__footer">

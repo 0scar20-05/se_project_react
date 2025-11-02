@@ -9,7 +9,7 @@ import ItemModal from "../ItemModal/ItemModal";
 import Footer from "../Footer/Footer";
 import Profile from "../Profile/Profile";
 import { filterWeatherData, getWeather } from "../../utils/weatherApi";
-import { coordinates, APIkey } from "../../utils/constants";
+import { coordinates, apiKey } from "../../utils/constants";
 import CurrentTemperatureUnitContext from "../../utils/CurrentTemperatureUnitContexts";
 import { getItems, addItem, removeItem } from "../../utils/api";
 import DeleteConfirmationModal from "../DeleteConfirmationModal/DeleteConfirmationModal";
@@ -74,7 +74,7 @@ function App() {
   };
 
   useEffect(() => {
-    getWeather(coordinates, APIkey)
+    getWeather(coordinates, apiKey)
       .then((data) => {
         const filteredData = filterWeatherData(data);
         setWeatherData(filteredData);
@@ -106,7 +106,9 @@ function App() {
   const deleteItemHandler = (itemId) => {
     removeItem(itemId)
       .then(() => {
-        setClothingItems((prev) => prev.filter((item) => item.id !== itemId));
+        setClothingItems((prev) =>
+          prev.filter((item) => (item.id || item._id) !== itemId)
+        );
         closeAllModals();
       })
       .catch(console.error);
