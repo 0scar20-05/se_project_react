@@ -15,6 +15,7 @@ function ItemModal({ activeModal, card, onClose, onOpenConfirmation }) {
           <div className="modal__header-row">
             <h2 className="modal__caption">{card.name}</h2>
             <button
+              type="button"
               className="modal__delete"
               onClick={() => onOpenConfirmation(card)}
             >

@@ -21,12 +21,14 @@ export default function DeleteConfirmationModal({
         </p>
         <div className="modal__buttons">
           <button
+            type="button"
             className="modal__button modal__button_type_confirm"
             onClick={() => onConfirm(card.id || card._id)}
           >
             Yes, delete item
           </button>
           <button
+            type="button"
             className="modal__button modal__button_type_cancel"
             onClick={onClose}
           >

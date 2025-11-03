@@ -1,18 +1,23 @@
+import "./App.css";
+
+// React imports
 import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
-import "./App.css";
+// Components
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import ItemModal from "../ItemModal/ItemModal";
 import Footer from "../Footer/Footer";
 import Profile from "../Profile/Profile";
+import DeleteConfirmationModal from "../DeleteConfirmationModal/DeleteConfirmationModal";
+
+// Utils/API
 import { filterWeatherData, getWeather } from "../../utils/weatherApi";
 import { coordinates, apiKey } from "../../utils/constants";
-import CurrentTemperatureUnitContext from "../../utils/CurrentTemperatureUnitContexts";
 import { getItems, addItem, removeItem } from "../../utils/api";
-import DeleteConfirmationModal from "../DeleteConfirmationModal/DeleteConfirmationModal";
+import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContexts";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -35,6 +40,8 @@ function App() {
 
   const closeActiveModal = () => {
     setActiveModal("");
+    setIsConfirmModalOpen(false);
+    setCardToDelete(null);
   };
 
   const onAddItem = (inputValues) => {
@@ -80,7 +87,9 @@ function App() {
         setWeatherData(filteredData);
       })
       .catch(console.error);
+  }, []);
 
+  useEffect(() => {
     getItems()
       .then((data) => {
         setClothingItems(data.reverse());
@@ -97,19 +106,13 @@ function App() {
     setIsConfirmModalOpen(true);
   };
 
-  const closeAllModals = () => {
-    setActiveModal("");
-    setIsConfirmModalOpen(false);
-    setCardToDelete(null);
-  };
-
   const deleteItemHandler = (itemId) => {
     removeItem(itemId)
       .then(() => {
         setClothingItems((prev) =>
           prev.filter((item) => (item.id || item._id) !== itemId)
         );
-        closeAllModals();
+        closeActiveModal();
       })
       .catch(console.error);
   };
@@ -158,7 +161,7 @@ function App() {
         />
         <DeleteConfirmationModal
           isOpen={isConfirmModalOpen}
-          onClose={closeAllModals}
+          onClose={closeActiveModal}
           onConfirm={deleteItemHandler}
           card={cardToDelete}
         />

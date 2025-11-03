@@ -68,6 +68,7 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
             value="hot"
             checked={values.weatherType === "hot"}
             onChange={handleChange}
+            required
           />{" "}
           Hot
         </label>
@@ -92,7 +93,6 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
             value="cold"
             checked={values.weatherType === "cold"}
             onChange={handleChange}
-            required
           />{" "}
           Cold
         </label>
