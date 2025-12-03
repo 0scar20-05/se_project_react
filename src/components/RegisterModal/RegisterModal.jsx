@@ -7,7 +7,7 @@ const RegisterModal = ({ isOpen, onRegister, onClose, onRedirect }) => {
     email: "",
     password: "",
     name: "",
-    avatarUrl: "",
+    avatar: "",
   };
   const { values, handleChange, setValues } = useForm(defaultValues);
 
@@ -23,7 +23,7 @@ const RegisterModal = ({ isOpen, onRegister, onClose, onRedirect }) => {
       name: values.name,
       email: values.email,
       password: values.password,
-      avatarUrl: values.avatarUrl,
+      avatar: values.avatar,
     });
   }
 
@@ -37,12 +37,12 @@ const RegisterModal = ({ isOpen, onRegister, onClose, onRedirect }) => {
       onClose={onClose}
       onSubmit={handleSubmit}
     >
-      <label htmlFor="email" className="modal__label">
+      <label htmlFor="register-email" className="modal__label">
         Email{" "}
         <input
           type="email"
           className="modal__input"
-          id="email"
+          id="register-email"
           name="email"
           placeholder="Email"
           required
@@ -50,12 +50,12 @@ const RegisterModal = ({ isOpen, onRegister, onClose, onRedirect }) => {
           onChange={handleChange}
         />
       </label>
-      <label htmlFor="password" className="modal__label">
+      <label htmlFor="register-password" className="modal__label">
         Password{" "}
         <input
           type="password"
           className="modal__input"
-          id="password"
+          id="register-password"
           name="password"
           placeholder="Password"
           required
@@ -63,12 +63,12 @@ const RegisterModal = ({ isOpen, onRegister, onClose, onRedirect }) => {
           onChange={handleChange}
         />
       </label>
-      <label htmlFor="name" className="modal__label">
+      <label htmlFor="register-name" className="modal__label">
         Name{" "}
         <input
           type="text"
           className="modal__input"
-          id="name"
+          id="register-name"
           name="name"
           placeholder="Name"
           required
@@ -76,16 +76,16 @@ const RegisterModal = ({ isOpen, onRegister, onClose, onRedirect }) => {
           onChange={handleChange}
         />
       </label>
-      <label htmlFor="Avatar URL" className="modal__label">
+      <label htmlFor="register-avatar" className="modal__label">
         Avatar URL{" "}
         <input
           type="url"
           className="modal__input"
-          id="avatarUrl"
-          name="avatarUrl"
+          id="register-avatar"
+          name="avatar"
           placeholder="Avatar URL"
           required
-          value={values.avatarUrl}
+          value={values.avatar}
           onChange={handleChange}
         />
       </label>

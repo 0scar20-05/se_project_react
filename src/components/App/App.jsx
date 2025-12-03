@@ -168,8 +168,8 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
 
-  const handleRegister = ({ name, avatarUrl, email, password }) => {
-    signup({ name, avatar: avatarUrl, email, password })
+  const handleRegister = ({ name, avatar, email, password }) => {
+    signup({ name, avatar: avatar, email, password })
       .then(() => {
         return handleLogin({ email, password });
       })
@@ -190,7 +190,9 @@ function App() {
       })
       .catch((err) => {
         console.error(err);
-        setError("Email or password is incorrect");
+        if (typeof setError === "function") {
+          setError("Invalid email or password");
+        }
       });
   };
 
@@ -220,8 +222,8 @@ function App() {
     setIsEditProfileModalOpen(false);
   }
 
-  function handleUpdateUser({ name, avatarUrl }) {
-    return updateUser({ name, avatar: avatarUrl })
+  function handleUpdateUser({ name, avatar }) {
+    return updateUser({ name, avatar })
       .then((updatedUser) => {
         setCurrentUser(updatedUser);
         closeEditProfileModal();

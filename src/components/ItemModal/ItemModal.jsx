@@ -9,7 +9,7 @@ function ItemModal({ activeModal, card, onClose, onOpenConfirmation }) {
   const id = card?._id || card?.id;
   if (!id) return null;
 
-  const isOwner = card.owner === currentUser._id;
+  const isOwner = card.owner === currentUser?._id;
 
   return (
     <div className={`modal ${activeModal === "preview" && "modal_opened"}`}>

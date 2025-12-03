@@ -1,4 +1,3 @@
-import "./EditProfileModal.css";
 import { useContext, useEffect, useState } from "react";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
@@ -29,12 +28,12 @@ export default function EditProfileModal({ isOpen, onClose, onUpdateUser }) {
       onClose={onClose}
       onSubmit={handleSubmit}
     >
-      <label htmlFor="name" className="modal__label">
+      <label htmlFor="profile-name" className="modal__label">
         Name
         <input
           type="text"
           className="modal__input"
-          id="name"
+          id="profile-name"
           name="name"
           placeholder="Name"
           required
@@ -43,12 +42,12 @@ export default function EditProfileModal({ isOpen, onClose, onUpdateUser }) {
         />
       </label>
 
-      <label htmlFor="avatar" className="modal__label">
+      <label htmlFor="profile-avatar" className="modal__label">
         Avatar URL
         <input
           type="url"
           className="modal__input"
-          id="avatar"
+          id="profile-avatar"
           name="avatar"
           placeholder="Avatar URL"
           required
