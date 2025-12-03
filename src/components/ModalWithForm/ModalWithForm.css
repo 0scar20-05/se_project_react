@@ -79,6 +79,12 @@
   padding: 0 0 8px 28px;
 }
 
+.modal__buttons-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .modal__submit {
   border: none;
   color: white;
@@ -86,13 +92,37 @@
   display: flex;
   justify-content: center;
   max-width: 130px;
-  padding: 10px 0;
+  padding: 8px 16px;
   border-radius: 5px;
-  margin-top: 20px;
   margin: 24px 0 36px 28px;
   line-height: 20px;
 }
 
 .modal__submit:hover {
   background-color: black;
+}
+
+.modal__redirect {
+  border: none;
+  color: rgba(0, 0, 0, 0.6);
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  max-width: 130px;
+  padding: 8px 16px;
+  border-radius: 5px;
+  margin: 24px 0 36px;
+  line-height: 20px;
+}
+
+.modal__redirect:hover {
+  text-decoration: underline;
+}
+
+.modal__error {
+  padding: 0 28px 12px 28px;
+  margin: 0;
+  color: #d32f2f;
+  font-size: 14px;
+  line-height: 18px;
 }

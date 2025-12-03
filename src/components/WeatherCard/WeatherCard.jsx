@@ -5,6 +5,9 @@ import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnit
 
 function WeatherCard({ weatherData }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
+
+  const isLoading = weatherData.temp.F === 999 || weatherData.temp.C === 999;
+
   const filteredOptions = weatherOptions.filter((option) => {
     return (
       option.day === weatherData.isDay &&
@@ -12,18 +15,16 @@ function WeatherCard({ weatherData }) {
     );
   });
 
-  let weatherOption;
-  if (filteredOptions.length === 0) {
-    weatherOption = defaultWeatherOptions[weatherData.isDay ? "day" : "night"];
-  } else {
-    weatherOption = filteredOptions[0];
-  }
+  const weatherOption =
+    filteredOptions[0] ||
+    defaultWeatherOptions[weatherData.isDay ? "day" : "night"];
 
   return (
     <section className="weather-card">
       <p className="weather-card__temp">
-        {weatherData.temp[currentTemperatureUnit]}
-        &deg;{currentTemperatureUnit}
+        {isLoading
+          ? "Loading..."
+          : `${weatherData.temp[currentTemperatureUnit]}°${currentTemperatureUnit}`}
       </p>
       <img
         src={weatherOption?.url}

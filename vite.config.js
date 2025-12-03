@@ -8,6 +8,3 @@ export default defineConfig({
     port: 3000,
   },
 });
-
-// base: "/se_project_react/",
-// http://localhost:3000/se_project_react/

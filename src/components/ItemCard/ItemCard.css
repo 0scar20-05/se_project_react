@@ -5,10 +5,18 @@
   justify-content: center;
 }
 
-.card__name {
+.card__header {
   position: absolute;
   top: 15px;
-  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card__name {
+  top: 15px;
+  left: auto;
+  margin: 0 0 0 30px;
   background-color: white;
   padding: 2px 12px;
   border-radius: 5px;
@@ -18,4 +26,12 @@
   width: 100%;
   border-radius: 15px;
   border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+.card__like-button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
 }
